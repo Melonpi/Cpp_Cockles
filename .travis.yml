@@ -1,0 +1,18 @@
+matrix:
+  include:
+      # GCC 6
+    - os: linux
+      env: COMPILER=g++-6
+      compiler: gcc
+
+      #Clang 3.9
+    - os: osx
+      env: LLVM_VERSION=3.9.0
+      compiler: clang
+
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - ctest

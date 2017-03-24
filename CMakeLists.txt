@@ -1,0 +1,21 @@
+PROJECT(CPP_COCKLES)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+OPTION(CPP_COCKLES_BUILD_TEST "Build test." TRUE)
+
+SET(CPP_COCKLES_HOME_DIR ${CMAKE_HOME_DIRECTORY})
+
+
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    add_definitions(-std=c++11 -stdlib=libc++ -O3 -Wall)
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    add_definitions(-std=c++11 -O3 -Wall -Wextra)
+endif()
+
+
+ADD_SUBDIRECTORY(src)
+if(CPP_COCKLES_BUILD_TEST)
+    ADD_SUBDIRECTORY(test)
+    ENABLE_TESTING()
+endif(CPP_COCKLES_BUILD_TEST)
