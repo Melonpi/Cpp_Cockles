@@ -8,7 +8,7 @@ SET(CPP_COCKLES_HOME_DIR ${CMAKE_HOME_DIRECTORY})
 
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    add_definitions(-std=c++11 -stdlib=libc++ -O3 -Wall)
+    add_definitions(-stdlib=libc++ -O3 -Wall)
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     add_definitions(-std=c++11 -O3 -Wall -Wextra)
 endif()
